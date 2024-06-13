@@ -1,0 +1,2 @@
+ARG repository
+FROM ghcr.io/${repository}:latest
