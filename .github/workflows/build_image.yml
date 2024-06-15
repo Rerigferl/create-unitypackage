@@ -6,6 +6,10 @@ on:
     branches: ["main"]
     paths: ["src/**"]
 
+permissions:
+  contents: read
+  packages: write
+
 env:
   tag: ghcr.io/${GITHUB_REPOSITORY,,}
 
