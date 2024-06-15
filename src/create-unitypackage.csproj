@@ -1,0 +1,51 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<Version>1.0.0</Version>
+		<TargetFramework>net9.0</TargetFramework>
+		<LangVersion>Preview</LangVersion>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+	</PropertyGroup>
+	
+	<PropertyGroup>
+		<PublishAot>true</PublishAot>
+		<PublishTrimmed>true</PublishTrimmed>
+		<SuppressTrimAnalysisWarnings>false</SuppressTrimAnalysisWarnings>
+		<OptimizationPreference>Size</OptimizationPreference>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)'=='Release'">
+		<InvariantGlobalization>true</InvariantGlobalization>
+		<StaticExecutable>true</StaticExecutable>
+		<StaticICULinking>true</StaticICULinking>
+		<StaticOpenSslLinking>true</StaticOpenSslLinking>
+		<LinkStandardCPlusPlusLibrary>true</LinkStandardCPlusPlusLibrary>
+		<StripSymbols>true</StripSymbols>
+		<TrimmerRemoveSymbols>true</TrimmerRemoveSymbols>
+		<DebuggerSupport>false</DebuggerSupport>
+		<EventSourceSupport>false</EventSourceSupport>
+		<MetadataUpdaterSupport>false</MetadataUpdaterSupport>
+		<StackTraceSupport>false</StackTraceSupport>
+		<UseSystemResourceKeys>true</UseSystemResourceKeys>
+		<LinkerFlavor>lld</LinkerFlavor>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<LinkerArgs Include="-lstdc++" />
+		<LinkerArgs Include="-gdwarf-4" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="System.IO.Hashing" Version="9.0.0-preview.5.24306.7" />
+		<PackageReference Include="ConsoleAppFramework" Version="5.2.1">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		
+		<Using Include="ConsoleAppFramework" />
+	</ItemGroup>
+
+</Project>
