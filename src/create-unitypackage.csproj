@@ -2,6 +2,7 @@
 
 	<PropertyGroup>
 		<OutputType>Exe</OutputType>
+		<Version>1.0.0</Version>
 		<TargetFramework>net9.0</TargetFramework>
 		<LangVersion>Preview</LangVersion>
 		<ImplicitUsings>enable</ImplicitUsings>
@@ -38,10 +39,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<PackageReference Include="System.IO.Hashing" Version="9.0.0-preview.5.24306.7" />
 		<PackageReference Include="ConsoleAppFramework" Version="5.2.1">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
+		
 		<Using Include="ConsoleAppFramework" />
 	</ItemGroup>
 
