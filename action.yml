@@ -28,6 +28,7 @@ runs:
   image: "Dockerfile.Action"
   env:
     REPO-TOKEN: ${{ inputs.repo-token }}
+    REPOSITORY: 'rerigferl/create-unitypackage'
   args:
     - ${{ inputs.input }}
     - ${{ inputs.output }}
