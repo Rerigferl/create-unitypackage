@@ -1,17 +1,43 @@
-name: "dotnet-action-template"
-description: ""
-author: ""
+name: "create-unitypackage"
+description: "Create Unitypackage"
+author: "Rerigferl"
 inputs:
   repo-token:
     description: 'The GitHub token used to manage labels'
     required: false
     default: ${{ github.token }}
+  input:
+    description: 'Input directory path'
+    required: true
+    default: '.'
+  output:
+    description: 'Output file path'
+    required: true
+    default: 'output.unitypackage'
+  rootDir: 
+    decription: 'Root directory'
+    required: false
+  excludeBaseDir: 
+    decription: 'Exclude base directory'
+    required: false
+  generateGuid: 
+    decription: 'Generate GUID automatically'
+    required: false
 runs:
   using: "docker"
   image: "Dockerfile.Action"
   env:
     DOCKER_IMAGE: ${{ github.repository }}
     REPO-TOKEN: ${{ inputs.repo-token }}
+  args:
+    - ${{ inputs.input }}
+    - ${{ inputs.output }}
+    - ${{ inputs.rootDir != '' && '-r' || '' }}
+    - ${{ inputs.rootDir }}
+    - ${{ inputs.excludeBaseDir != '' && '-e' || '' }}
+    - ${{ inputs.excludeBaseDir }}
+    - ${{ inputs.generateGuid != '' && '-g' || '' }}
+    - ${{ inputs.generateGuid }}
 
 branding:
   icon: 'file-text'
