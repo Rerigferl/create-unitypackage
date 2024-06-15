@@ -27,7 +27,6 @@ runs:
   using: "docker"
   image: "Dockerfile.Action"
   env:
-    DOCKER_IMAGE: ${{ github.repository }}
     REPO-TOKEN: ${{ inputs.repo-token }}
   args:
     - ${{ inputs.input }}
