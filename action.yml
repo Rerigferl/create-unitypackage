@@ -31,12 +31,10 @@ runs:
   args:
     - ${{ inputs.input }}
     - ${{ inputs.output }}
+    - ${{ inputs.excludeBaseDir == 'true' && '-e' || '' }}
+    - ${{ inputs.generateGuid == 'true' && '-g' || '' }}
     - ${{ inputs.rootDir != '' && '-r' || '' }}
     - ${{ inputs.rootDir }}
-    - ${{ inputs.excludeBaseDir != '' && '-e' || '' }}
-    - ${{ inputs.excludeBaseDir }}
-    - ${{ inputs.generateGuid != '' && '-g' || '' }}
-    - ${{ inputs.generateGuid }}
 
 branding:
   icon: 'file-text'
