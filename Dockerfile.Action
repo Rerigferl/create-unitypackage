@@ -1,2 +1,1 @@
-ARG repository
-FROM ghcr.io/${repository}:latest
+FROM ghcr.io/rerigferl/create-unitypackage:latest
